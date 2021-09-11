@@ -26,3 +26,7 @@ Route::post('/todos/create',[TodoController::class,'store']);
 
 Route::patch('/todos/{todo}/update',[TodoController::class,'update'])->name('todo.update');
 Route::get('/todos/{todo}/edit',[TodoController::class,'edit'])->name('todo.edit');//laravel get id and automatically return todo object(because Todo object is needed for edit method)
+
+Route::put('/todos/{todo}/complete',[TodoController::class,'complete'])->name('todo.complete');
+Route::delete('/todos/{todo}/incomplete',[TodoController::class,'incomplete'])->name('todo.incomplete');
+Route::delete('/todos/{todo}/delete',[TodoController::class,'delete'])->name('todo.delete');

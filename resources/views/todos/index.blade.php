@@ -17,11 +17,16 @@
             @endif
             <div>
                 <a href="{{route('todo.edit',$todo->id)}}" class="text-orange-400 cursor-pointer"> <span class="fas fa-edit px-2"/> </a>
-                @if($todo->completed)
-                    <span class="fas fa-check text-green-500 px-2"/>
-                @else
-                    <span class="fas fa-check text-gray-300 cursor-pointer px-2"/>
-                @endif
+                @include('todos.completeBtn')
+                <span class="fas fa-trash text-red-500 cursor-pointer px-2" onclick="event.preventDefault();
+                    if(confirm('Are you want to delete this todo')){
+                        document.getElementById('form-delete-{{$todo->id}}').submit()
+                    }
+                "/>
+                <form style="display: none" id="{{'form-delete-'.$todo->id}}" method="post" action="{{route('todo.delete',$todo->id)}}">
+                    @csrf
+                    @method('delete')
+                </form>
             </div>
             
         </li>
