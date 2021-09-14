@@ -1,0 +1,4 @@
+.scaled {
+    transform: scale(1.3); /* Equal to scaleX(0.7) scaleY(0.7) */
+}
+  

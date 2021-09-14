@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function todos()//if we call todos() - this method return realtionship object 
+    {
+        return $this->hasMany(Todo::class);//Get all todos(from todo table) where (modelname)_id == currObj->id
+    }
 }
